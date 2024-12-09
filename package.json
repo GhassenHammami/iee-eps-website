@@ -1,0 +1,23 @@
+{
+  "homepage": "https://ghassenhammami.github.io/iee-eps-website",
+  "name": "iee-eps-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-style": "npx tailwindcss -i ./style/index.css -o ./style/output.css --minify --watch",
+    "build": "shx rm -rf build && npx tailwindcss -i ./style/index.css -o ./build/style/output.css --minify && shx mkdir -p build/js build/assets && shx cp -r js/* build/js && shx cp -r assets/* build/assets && shx cp *.html build/",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "gh-pages": "^6.2.0",
+    "postcss": "^8.4.49",
+    "shx": "^0.3.4",
+    "tailwindcss": "^3.4.16"
+  }
+}
